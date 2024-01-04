@@ -47,10 +47,8 @@ async function run() {
         const { ObjectId } = require('mongodb');
         app.get('/tasks/:id', async (req, res) => {
             const id = req.params.id;
-            console.log('Requested Task ID:', id); // Add this line
             const filter = { _id: new ObjectId(id) };
             const task = await taskCollection.findOne(filter);
-            console.log('Retrieved Task:', task); // Add this line
             res.send(task);
         });
 
